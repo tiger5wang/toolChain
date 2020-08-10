@@ -59,7 +59,7 @@ function data(c){
         emit({
             type:"EOF"
         });
-        return ;
+        return;
     } else {
         emit({
             type:"text",
@@ -97,7 +97,7 @@ function tagName(c) {
     } else if(c == "/") {
         return selfClosingStartTag;
     } else if(c.match(/^[A-Z]$/)) {
-        currentToken.tagName += c//.toLowerCase();
+        currentToken.tagName += c.toLowerCase();   //.toLowerCase();
         return tagName;
     } else if(c == ">") {
         emit(currentToken);
@@ -111,7 +111,7 @@ function tagName(c) {
 function beforeAttributeName(c) {
     if(c.match(/^[\t\n\f ]$/)) {
         return beforeAttributeName;
-    } else if(c == "/" || c == ">" || c == EOF) {
+    } else if(c == "/" || c == ">") {
         return afterAttributeName(c);
     } else if(c == "=") {
 
@@ -192,6 +192,7 @@ function doubleQuotedAttributeValue(c) {
     }
 }
 
+// 单引号属性值
 function singleQuotedAttributeValue(c) {
     if(c == "\'") {
         currentToken[currentAttribute.name] = currentAttribute.value;
@@ -206,6 +207,7 @@ function singleQuotedAttributeValue(c) {
     }
 }
 
+// 双引号属性值
 function afterQuotedAttributeValue (c){
     if(c.match(/^[\t\n\f ]$/)) {
         return beforeAttributeName;
@@ -216,8 +218,9 @@ function afterQuotedAttributeValue (c){
         emit(currentToken);
         return data;
     } else if(c == EOF) {
-        
+        console.log('99999999999999999')
     } else {
+        console.log('currentAttribute', currentAttribute)
         currentAttribute.value += c;
         return doubleQuotedAttributeValue
     }
@@ -252,7 +255,7 @@ function selfClosingStartTag(c){
         currentToken.isSelfClosing = true;
         emit(currentToken);
         return data;
-    } else if(c == "EOF") {
+    } else if(c == EOF) {
 
     } else {
         
