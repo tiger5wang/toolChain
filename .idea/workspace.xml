@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0f3526cb-c2c2-4b92-a69d-364bf95a535a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/test-demo/.nyc_output/processinfo/index.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-demo/src/parser.js" beforeDir="false" afterPath="$PROJECT_DIR$/test-demo/src/parser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-demo/test/parser.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/test-demo/test/parser.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-demo2/.babelrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-demo2/.nyc_output/processinfo/index.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-demo2/.nycrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-demo2/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-demo2/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-demo2/src/add.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-demo2/test/add.test.js" beforeDir="false" />
+    <list default="true" id="0f3526cb-c2c2-4b92-a69d-364bf95a535a" name="Default Changelist" comment="parser 测试">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,10 +77,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="parser 测试" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="372" y="8" key="CommitChangelistDialog2" timestamp="1597154981274">
+    <state x="372" y="8" key="CommitChangelistDialog2" timestamp="1597155480692">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="372" y="8" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1597154981274" />
+    <state x="372" y="8" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1597155480692" />
     <state x="549" y="173" key="FileChooserDialogImpl" timestamp="1597151279843">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -98,10 +89,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="270" y="60" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1597151271624" />
-    <state x="361" y="151" key="Vcs.Push.Dialog.v2" timestamp="1596987108850">
+    <state x="361" y="151" key="Vcs.Push.Dialog.v2" timestamp="1597155497012">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="151" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1596987108850" />
+    <state x="361" y="151" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1597155497012" />
     <state x="562" y="335" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1597155026244">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
