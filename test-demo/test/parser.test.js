@@ -42,9 +42,9 @@ it('content with < ', function () {
 	assert.equal(text.content, 'a < b');
 });
 
-// 元素属性，及属性间有空格，制表符，换行等符号
+// 元素属性，及属性间有空格，制表符，换行等符号, 等号 = 前后有空格、制表符等
 it('with attributes ', function () {
-    let doc = parseHTML('<div id=a  class="cls"     data=\'abc\' ' +
+    let doc = parseHTML('<div id =a  class=     "cls"     data=\'abc\' ' +
         'changeLine="11"></div>');
 	let div = doc.children[0];
 	
@@ -108,6 +108,40 @@ it('only has attribute name ', function () {
 		if(attr.name === 'datas') {
 			count++;
 			assert.equal(attr.value, '');
+		}
+	}
+	assert.ok(count === 1)
+});
+
+// 一个单独的属性名后面还有其他属性
+it('after attribute name has other attribute', function () {
+	let doc = parseHTML(`<div datas id='bb'></div>`);
+	let div = doc.children[0];
+	// console.log(div)
+	let count = 0;
+	for(let attr of div.attributes) {
+		if(attr.name === 'datas') {
+			count++;
+			assert.equal(attr.value, '');
+		}
+		if(attr.name === 'id') {
+			count++;
+			assert.equal(attr.value, 'bb');
+		}
+	}
+	assert.ok(count === 2)
+});
+
+// 属性值不带引号的属性作为最后一个属性
+it('UnquotedAttributeValue is the last attribute ', function () {
+	let doc = parseHTML(`<div datas=c></div>`);
+	let div = doc.children[0];
+	// console.log(div)
+	let count = 0;
+	for(let attr of div.attributes) {
+		if(attr.name === 'datas') {
+			count++;
+			assert.equal(attr.value, 'c');
 		}
 	}
 	assert.ok(count === 1)
@@ -177,6 +211,21 @@ it('parse a selfClosingTag element last attributes with char', function () {
 	assert.ok(count === 4)
 });
 
+// 自封闭 元素 属性值不带引号的属性作为最后一个属性
+it('UnquotedAttributeValue is the last attribute ', function () {
+	let doc = parseHTML(`<div datas=c/>`);
+	let div = doc.children[0];
+	console.log(div)
+	let count = 0;
+	for(let attr of div.attributes) {
+		if(attr.name === 'datas') {
+			count++;
+			assert.equal(attr.value, 'c');
+		}
+	}
+	assert.ok(count === 1)
+});
+
 // 元素名包含大写字母
 it('element with uppercaseWord ', function () {
     let doc = parseHTML('<diV></diV>');
@@ -184,7 +233,6 @@ it('element with uppercaseWord ', function () {
 	
 	assert.equal(div.tagName, 'div')
 });
-
 
 
 //

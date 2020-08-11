@@ -71,6 +71,10 @@ function data(c){
 
 function tagOpen(c){
     if(c == "/") {
+		currentToken = {
+			type: "endTag",
+			tagName : ""
+		};
         return endTagOpen;
     } else if(c.match(/^[a-zA-Z]$/)) {
         currentToken = {
@@ -91,6 +95,7 @@ function tagOpen(c){
     }
 }
 
+// 处理标签名状态
 function tagName(c) {
     if(c.match(/^[\t\n\f ]$/)) {
         return beforeAttributeName;
@@ -108,6 +113,7 @@ function tagName(c) {
     }
 }
 
+// 属性名开始前的状态
 function beforeAttributeName(c) {
     if(c.match(/^[\t\n\f ]$/)) {
         return beforeAttributeName;
@@ -125,9 +131,10 @@ function beforeAttributeName(c) {
     }
 }
 
+// 校验属性名状态
 function attributeName(c) {
     //console.log(currentAttribute);
-    if(c.match(/^[\t\n\f ]$/) || c == "/" || c == ">" || c == EOF) {
+    if(c.match(/^[\t\n\f ]$/) || c == "/" || c == ">" ) {
         return afterAttributeName(c);
     } else if(c == "=") {
         return beforeAttributeValue;
@@ -141,6 +148,7 @@ function attributeName(c) {
     }
 }
 
+// 属性名结束后状态
 function afterAttributeName(c) {
     if(c.match(/^[\t\n\f ]$/)) {
         return afterAttributeName;
@@ -152,9 +160,7 @@ function afterAttributeName(c) {
         currentToken[currentAttribute.name] = currentAttribute.value;
         emit(currentToken);
         return data;
-    } else if(c == EOF) {
-
-    } else {
+    }else {
         currentToken[currentAttribute.name] = currentAttribute.value;
         currentAttribute = {
             name : "",
@@ -164,6 +170,7 @@ function afterAttributeName(c) {
     }
 }
 
+// 属性值开始前的状态
 function beforeAttributeValue(c) {
     if(c.match(/^[\t\n\f ]$/) || c == "/" || c == ">" || c == EOF) {
         return beforeAttributeValue;
@@ -178,6 +185,7 @@ function beforeAttributeValue(c) {
     }
 }
 
+// 校验双引号属性值
 function doubleQuotedAttributeValue(c) {
     if(c == "\"") {
         currentToken[currentAttribute.name] = currentAttribute.value;
@@ -192,7 +200,7 @@ function doubleQuotedAttributeValue(c) {
     }
 }
 
-// 单引号属性值
+// 校验单引号属性值
 function singleQuotedAttributeValue(c) {
     if(c == "\'") {
         currentToken[currentAttribute.name] = currentAttribute.value;
@@ -207,7 +215,7 @@ function singleQuotedAttributeValue(c) {
     }
 }
 
-// 双引号属性值
+// 带引号属性值结束后状态
 function afterQuotedAttributeValue (c){
     if(c.match(/^[\t\n\f ]$/)) {
         return beforeAttributeName;
@@ -217,21 +225,21 @@ function afterQuotedAttributeValue (c){
         currentToken[currentAttribute.name] = currentAttribute.value;
         emit(currentToken);
         return data;
-    } else if(c == EOF) {
-        console.log('99999999999999999')
-    } else {
-        console.log('currentAttribute', currentAttribute)
-        currentAttribute.value += c;
-        return doubleQuotedAttributeValue
     }
+	// else {
+	// 	console.log('currentAttribute', currentAttribute)
+	// 	currentAttribute.value += c;
+	// 	return doubleQuotedAttributeValue
+	// }
 }
 
-function UnquotedAttributeValue(c) {
 
+function UnquotedAttributeValue(c) {
     if(c.match(/^[\t\n\f ]$/)) {
         currentToken[currentAttribute.name] = currentAttribute.value;
         return beforeAttributeName;
     } else if(c == "/") {
+        console.log('currentAttribute', currentAttribute)
         currentToken[currentAttribute.name] = currentAttribute.value;
         return selfClosingStartTag;
     } else if(c == ">") {
@@ -250,188 +258,26 @@ function UnquotedAttributeValue(c) {
     }
 }
 
+// 自封闭标签
 function selfClosingStartTag(c){
     if( c == ">") {
         currentToken.isSelfClosing = true;
         emit(currentToken);
         return data;
-    } else if(c == EOF) {
-
     } else {
         
     }
 }
 
+// 结束标签
 function endTagOpen(c){
     if(c.match(/^[a-zA-Z]$/)) {
-        currentToken = {
-            type: "endTag",
-            tagName : ""
-        }
         return tagName(c);
-    } else if(c == ">") {
-
-    } else if(c == EOF) {
-        
     } else {
-
-    }
-}
-//in script
-function scriptData(c){
     
-    if(c == "<") {
-        return scriptDataLessThanSign;
-    } else {
-        emit({
-            type:"text",
-            content:c
-        });
-        return scriptData;
-    }
-}
-//in script received <
-function scriptDataLessThanSign(c){
-    if(c == "/") {
-        return scriptDataEndTagOpen;
-    } else {
-        emit({
-            type:"text",
-            content:"<"
-        });
-        emit({
-            type:"text",
-            content:c
-        });
-        return scriptData(c);
-    }
-}
-//in script received </
-function scriptDataEndTagOpen(c){
-    if(c == "s") {
-        return scriptDataEndTagNameS;
-    } else {
-        emit({
-            type:"text",
-            content:"<"
-        });
-
-        emit({
-            type:"text",
-            content:"/"
-        });
-
-        emit({
-            type:"text",
-            content:"c"
-        });
-        return scriptData;
-    }
-}
-//in script received </s
-function scriptDataEndTagNameS(c){
-    if(c == "c") {
-        return scriptDataEndTagNameC;
-    } else {
-        emit({
-            type:"text",
-            content:"</s"
-        });
-        emit({
-            type:"text",
-            content:c
-        });
-        return scriptData;
     }
 }
 
-//in script received </sc
-function scriptDataEndTagNameC(c){
-    if(c == "r") {
-        return scriptDataEndTagNameR;
-    } else {
-        emit({
-            type:"text",
-            content:"</sc"
-        });
-        emit({
-            type:"text",
-            content:c
-        });
-        return scriptData;
-    }
-}
-
-//in script received </scr
-function scriptDataEndTagNameR(c){
-    if(c == "i") {
-        return scriptDataEndTagNameI;
-    } else {
-        emit({
-            type:"text",
-            content:"</scr"
-        });
-        emit({
-            type:"text",
-            content:c
-        });
-        return scriptData;
-    }
-}
-//in script received </scri
-function scriptDataEndTagNameI(c){
-    if(c == "p") {
-        return scriptDataEndTagNameP;
-    } else {
-        emit({
-            type:"text",
-            content:"</scri"
-        });
-        emit({
-            type:"text",
-            content:c
-        });
-        return scriptData;
-    }
-}
-//in script received </scrip
-function scriptDataEndTagNameP(c){
-    if(c == "t") {
-        return scriptDataEndTag;
-    } else {
-        emit({
-            type:"text",
-            content:"</scrip"
-        });
-        emit({
-            type:"text",
-            content:c
-        });
-        return scriptData;
-    }
-}
-//in script received </script
-function scriptDataEndTag(c){
-    if(c == " ") {
-        return scriptDataEndTag;
-    } if(c == ">") {
-        emit({
-            type: "endTag",
-            tagName : "script"
-        });
-        return data;
-    } else {
-        emit({
-            type:"text",
-            content:"</script"
-        });
-        emit({
-            type:"text",
-            content:c
-        });
-        return scriptData;
-    }
-}
 
 
 module.exports.parseHTML = function parseHTML(html){
@@ -439,9 +285,9 @@ module.exports.parseHTML = function parseHTML(html){
     stack =  [{type: "document", children:[]}];
     for(let c of html) {
         state = state(c);
-        if(stack[stack.length - 1].tagName === "script" && state == data) {
-            state = scriptData;
-        }
+        // if(stack[stack.length - 1].tagName === "script" && state == data) {
+        //     state = scriptData;
+        // }
     }
     state = state(EOF);
     return stack[0];
