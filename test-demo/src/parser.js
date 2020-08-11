@@ -18,6 +18,7 @@ function emit(token){
 
         for(let p in token) {
             if(p != "type" || p != "tagName")
+                console.log('1111111111111111', p)
                 element.attributes.push({
                     name: p,
                     value: token[p]
@@ -119,14 +120,11 @@ function beforeAttributeName(c) {
         return beforeAttributeName;
     } else if(c == "/" || c == ">") {
         return afterAttributeName(c);
-    } else if(c == "=") {
-
     } else {
         currentAttribute = {
             name: "",
             value: ""
-        }
-        //console.log("currentAttribute", currentAttribute)
+        };
         return attributeName(c);
     }
 }
@@ -138,14 +136,15 @@ function attributeName(c) {
         return afterAttributeName(c);
     } else if(c == "=") {
         return beforeAttributeValue;
-    } else if(c == "\u0000") {
-
-    } else if(c == "\"" || c == "'" || c == "<") {
-
     } else {
         currentAttribute.name += c;
         return attributeName;
     }
+    // else if(c == "\u0000") {
+    //
+    // } else if(c == "\"" || c == "'" || c == "<") {
+    //
+    // }
 }
 
 // 属性名结束后状态
@@ -178,8 +177,6 @@ function beforeAttributeValue(c) {
         return doubleQuotedAttributeValue;
     } else if(c == "\'") {
         return singleQuotedAttributeValue;
-    } else if(c == ">") {
-        //return data;
     } else {
         return UnquotedAttributeValue(c);
     }
@@ -190,14 +187,15 @@ function doubleQuotedAttributeValue(c) {
     if(c == "\"") {
         currentToken[currentAttribute.name] = currentAttribute.value;
         return afterQuotedAttributeValue;
-    } else if(c == "\u0000") {
-
-    } else if(c == EOF) {
-        
     } else {
         currentAttribute.value += c;
         return doubleQuotedAttributeValue
     }
+    // else if(c == "\u0000") {
+    //
+    // } else if(c == EOF) {
+    //
+    // }
 }
 
 // 校验单引号属性值
@@ -205,23 +203,25 @@ function singleQuotedAttributeValue(c) {
     if(c == "\'") {
         currentToken[currentAttribute.name] = currentAttribute.value;
         return afterQuotedAttributeValue;
-    } else if(c == "\u0000") {
-
-    } else if(c == EOF) {
-        
-    } else {
+    }else {
         currentAttribute.value += c;
         return singleQuotedAttributeValue
     }
+    // else if(c == "\u0000") {
+    //
+    // } else if(c == EOF) {
+    //
+    // }
 }
 
 // 带引号属性值结束后状态
 function afterQuotedAttributeValue (c){
     if(c.match(/^[\t\n\f ]$/)) {
         return beforeAttributeName;
-    } else if(c == "/") {
+    } else if(c === "/") {
         return selfClosingStartTag;
-    } else if(c == ">") {
+    } else if(c === ">") {
+        console.log('22222222222222222', c)
         currentToken[currentAttribute.name] = currentAttribute.value;
         emit(currentToken);
         return data;
@@ -239,33 +239,33 @@ function UnquotedAttributeValue(c) {
         currentToken[currentAttribute.name] = currentAttribute.value;
         return beforeAttributeName;
     } else if(c == "/") {
-        console.log('currentAttribute', currentAttribute)
+        // console.log('currentAttribute', currentAttribute)
         currentToken[currentAttribute.name] = currentAttribute.value;
         return selfClosingStartTag;
     } else if(c == ">") {
         currentToken[currentAttribute.name] = currentAttribute.value;
         emit(currentToken);
         return data;
-    } else if(c == "\u0000") {
-
-    } else if(c == "\"" || c == "'" || c == "<" || c == "=" || c == "`") {
-
-    } else if(c == EOF) {
-        
     } else {
         currentAttribute.value += c;
         return UnquotedAttributeValue
     }
+    // else if(c == "\u0000") {
+    //
+    // } else if(c == "\"" || c == "'" || c == "<" || c == "=" || c == "`") {
+    //
+    // } else if(c == EOF) {
+    //
+    // }
 }
 
 // 自封闭标签
 function selfClosingStartTag(c){
     if( c == ">") {
+        console.log('333333333333333333', c)
         currentToken.isSelfClosing = true;
         emit(currentToken);
         return data;
-    } else {
-        
     }
 }
 
@@ -273,11 +273,8 @@ function selfClosingStartTag(c){
 function endTagOpen(c){
     if(c.match(/^[a-zA-Z]$/)) {
         return tagName(c);
-    } else {
-    
     }
 }
-
 
 
 module.exports.parseHTML = function parseHTML(html){

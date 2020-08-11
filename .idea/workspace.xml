@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0f3526cb-c2c2-4b92-a69d-364bf95a535a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/test-demo/.nyc_output/processinfo/index.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-demo/src/parser.js" beforeDir="false" afterPath="$PROJECT_DIR$/test-demo/src/parser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-demo/test/parser.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/test-demo/test/parser.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-demo2/.babelrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-demo2/.nyc_output/processinfo/index.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-demo2/.nycrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-demo2/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-demo2/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-demo2/src/add.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-demo2/test/add.test.js" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
+  </component>
+  <component name="ProjectId" id="1frrDU9pTqUmgW5tFINpnJ0zKtn" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0f3526cb-c2c2-4b92-a69d-364bf95a535a" name="Default Changelist" comment="" />
+      <created>1596986932952</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1596986932952</updated>
+    </task>
+    <task id="LOCAL-00001" summary="工具链-mocha,nyc">
+      <created>1596987107095</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1596987107095</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="工具链-mocha,nyc" />
+    <MESSAGE value="parser 测试" />
+    <option name="LAST_COMMIT_MESSAGE" value="parser 测试" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="372" y="8" key="CommitChangelistDialog2" timestamp="1597154981274">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="372" y="8" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1597154981274" />
+    <state x="549" y="173" key="FileChooserDialogImpl" timestamp="1597151279843">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="549" y="173" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1597151279843" />
+    <state x="270" y="60" key="SettingsEditor" timestamp="1597151271624">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="270" y="60" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1597151271624" />
+    <state x="361" y="151" key="Vcs.Push.Dialog.v2" timestamp="1596987108850">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="361" y="151" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1596987108850" />
+    <state x="562" y="335" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1597155026244">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="562" y="335" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.834@0.0.1536.834" timestamp="1597155026244" />
+  </component>
+</project>

@@ -215,7 +215,7 @@ it('parse a selfClosingTag element last attributes with char', function () {
 it('UnquotedAttributeValue is the last attribute ', function () {
 	let doc = parseHTML(`<div datas=c/>`);
 	let div = doc.children[0];
-	console.log(div)
+	// console.log(div)
 	let count = 0;
 	for(let attr of div.attributes) {
 		if(attr.name === 'datas') {
