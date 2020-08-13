@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha -t 5000 -s 1100 --require @babel/register",
-    "coverage": "nyc mocha"
+    "test": "mocha --recursive -R markdown > spec.md -t 5000 -s 1100 --require @babel/register",
+    "coverage": "nyc mocha",
+    "browser": "mocha init browser-test"
   },
   "author": "",
   "license": "ISC",
