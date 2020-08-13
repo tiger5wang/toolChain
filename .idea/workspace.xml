@@ -2,9 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f3526cb-c2c2-4b92-a69d-364bf95a535a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/test-demo/test/async.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-demo/browser-test/add.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-demo/browser-test/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-demo/browser-test/mocha.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-demo/browser-test/mocha.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-demo/browser-test/tests.spec.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-demo/spec.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-demo/spec.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-demo/test/caseManage.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-demo/test/hooks.test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-demo/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/test-demo/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test-demo/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/test-demo/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -15,8 +22,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -38,7 +45,8 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="E:/LionBridge/MStone_CRM_RN" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="ServiceViewManager">
@@ -75,7 +83,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597155524384</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="mocha 异步">
+      <created>1597243540642</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1597243540651</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -85,25 +100,26 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="工具链-mocha,nyc" />
     <MESSAGE value="parser 测试" />
-    <option name="LAST_COMMIT_MESSAGE" value="parser 测试" />
+    <MESSAGE value="mocha 异步" />
+    <option name="LAST_COMMIT_MESSAGE" value="mocha 异步" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="372" y="8" key="CommitChangelistDialog2" timestamp="1597155523494">
+    <state x="372" y="8" key="CommitChangelistDialog2" timestamp="1597307217960">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="372" y="8" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1597155523494" />
-    <state x="549" y="173" key="FileChooserDialogImpl" timestamp="1597191044465">
+    <state x="372" y="8" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1597307217960" />
+    <state x="549" y="173" key="FileChooserDialogImpl" timestamp="1597279516606">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="549" y="173" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1597191044465" />
+    <state x="549" y="173" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1597279516606" />
     <state x="270" y="60" key="SettingsEditor" timestamp="1597151271624">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="270" y="60" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1597151271624" />
-    <state x="361" y="151" key="Vcs.Push.Dialog.v2" timestamp="1597155525761">
+    <state x="361" y="151" key="Vcs.Push.Dialog.v2" timestamp="1597243542902">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="151" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1597155525761" />
+    <state x="361" y="151" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1597243542902" />
     <state x="562" y="335" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1597155026244">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
